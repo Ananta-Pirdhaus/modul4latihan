@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Mahasiswa {
+public class DataPraktikan {
     private HashMap<String, String> tabelData;
     private HashMap<String, String> tabelSesiLogin;
 
-    public Mahasiswa() {
+    public DataPraktikan() {
         tabelData = new HashMap<String, String>();
         tabelSesiLogin = new HashMap<String, String>();
     }
@@ -54,16 +54,17 @@ public class Mahasiswa {
         return false;
     }
 
-    public void editData(String nimPraktikan, String namaAsisten) {
+    public boolean editData(String nimPraktikan, String namaAsisten) {
         if (tabelData.containsKey(nimPraktikan)) {
             tabelData.put(nimPraktikan, namaAsisten);
             System.out.println("Data berhasil diubah!");
         } else {
             System.out.println("Data tidak ditemukan!");
         }
+        return false;
     }
 
-    public void login() {
+    public boolean login() {
         Scanner input = new Scanner(System.in);
         System.out.print("Email: ");
         String email = input.nextLine();
@@ -88,6 +89,7 @@ public class Mahasiswa {
         } else {
             System.out.println("Gagal Login: email atau password salah");
         }
+        return false;
     }
 
     public void logout() {
